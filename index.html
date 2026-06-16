@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte, Futuro Sustentável</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CONFIGURAÇÕES GERAIS (CSS) --- */
+        :root {
+            --base-font-size: 16px;
+            --site-brightness: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Fundo roxo com degradê */
+            background: linear-gradient(135deg, #2e0854, #4a157d, #6a259a);
+            background-attachment: fixed;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            font-size: var(--base-font-size);
+            filter: brightness(var(--site-brightness));
+            line-height: 1.6;
+            transition: filter 0.2s ease, font-size 0.2s ease;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* --- DETALHES COM FLORES ROXAS --- */
+        /* Usando formas decorativas que lembram pétalas/flores sutis via CSS */
+        .flower-bg {
+            position: fixed;
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .flower-1 {
+            top: -10px;
+            right: -50px;
+            font-size: 15rem;
+            color: #b388ff;
+        }
+        .flower-2 {
+            bottom: -50px;
+            left: -50px;
+            font-size: 12rem;
+            color: #d1c4e9;
+        }
+
+        /* --- PAINEL DE ACESSIBILIDADE (BOTÕES) --- */
+        .accessibility-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .control-group span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 5px;
+        }
+
+        button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: #ffffff;
+            color: #4a157d;
+        }
+
+        /* --- CONTEÚDO DO SITE --- */
+        header {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-style: italic;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+            .accessibility-controls {
+                position: static;
+                margin: 20px auto;
+                width: max-content;
+                flex-direction: row;
+            }
+        }
+
+        .content-box h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        /* Linha decorativa delicada abaixo do título */
+        .content-box h2::after {
+            content: '✿';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            font-size: 1rem;
+            color: #e0b0ff;
+        }
+
+        .content-box p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-weight: 300;
+        }
+
+        .image-box {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Overlay roxo sutil nas imagens para combinar com o tema */
+        .image-box::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(74, 21, 125, 0.4));
+            pointer-events: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flower-bg flower-1">✿</div>
+    <div class="flower-bg flower-2">❀</div>
+
+    <div class="accessibility-controls">
+        <div class="control-group">
+            <span>Texto</span>
+            <div class="btn-container">
+                <button onclick="alterarTexto(-2)" title="Diminuir Letra">A-</button>
+                <button onclick="alterarTexto(2)" title="Aumentar Letra">A+</button>
+            </div>
+        </div>
+        <div class="control-group">
+            <span>Brilho</span>
+            <div class="btn-container">
+                <button onclick="alterarBrilho(-10)" title="Diminuir Brilho">🔆-</button>
+                <button onclick="alterarBrilho(10)" title="Aumentar Brilho">🔆+</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <h1>Agro Forte, Futuro Sustentável</h1>
+        <p>A união entre a força do campo e a preservação do amanhã.</p>
+    </header>
+
+    <main class="container">
+
+        <section class="section-grid">
+            <div class="content-box">
+                <h2>A Potência da Nossa Terra</h2>
+                <p>O conceito de "Agro Forte" representa a resiliência e a evolução tecnológica que impulsionam a produção de alimentos no mundo. Com o uso de dados, maquinários inteligentes e técnicas avançadas de cultivo, o campo se tornou um polo de inovação.</p>
+                <p>Essa força garante a segurança alimentar e movimenta a economia, provando que a tradição e a modernidade caminham lado a lado para alimentar gerações.</p>
+            </div>
+            <div class="image-box">
+                <img src=https://i.pinimg.com/736x/b0/cd/6f/b0cd6ff08bd0f2bf2e4b9e13b3d029a2.jpg
+            </div>
+        </section>
+
+        <section class="section-grid" style="direction: rtl;">
+            <div class="content-box" style="direction: ltr;">
+                <h2>Sustentabilidade no Campo</h2>
+                <p>Olhar para o futuro exige responsabilidade. A agricultura sustentável foca em produzir sem esgotar nossos recursos naturais. Isso inclui o manejo correto da água, o plantio direto, a rotação de culturas e a preservação das florestas nativas.</p>
+                <p>Adotar práticas ecológicas não reduz a produtividade; pelo contrário, protege o solo e garante que a terra continue fértil e próspera para as próximas décadas.</p>
+            </div>
+            <div class="image-box" style="direction: ltr;">
+                <img src=https://i.pinimg.com/1200x/20/a5/3a/20a53a9b15152e3ce80b4628e751656c.jpg
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Agro Forte & Sustentável. Florescendo um amanhã melhor. ❀</p>
+    </footer>
+
+    <script>
+        // Variáveis iniciais de controle
+        let tamanhoAtual = 16; // em pixels
+        let brilhoAtual = 100; // em porcentagem
+
+        // Função para aumentar ou diminuir o tamanho da fonte
+        function alterarTexto(variacao) {
+            // Define limites para o tamanho da fonte (mínimo 12px, máximo 24px)
+            if ((tamanhoAtual + variacao) >= 12 && (tamanhoAtual + variacao) <= 24) {
+                tamanhoAtual += variacao;
+                // Aplica a alteração na variável CSS do root
+                document.documentElement.style.setProperty('--base-font-size', tamanhoAtual + 'px');
+            }
+        }
+
+        // Função para aumentar ou diminuir o brilho da página
+        function alterarBrilho(variacao) {
+            // Define limites para o brilho (mínimo 50%, máximo 130%)
+            if ((brilhoAtual + variacao) >= 50 && (brilhoAtual + variacao) <= 130) {
+                brilhoAtual += variacao;
+                // Aplica a alteração na variável CSS do root
+                document.documentElement.style.setProperty('--site-brightness', brilhoAtual + '%');
+            }
+        }
+    </script>
+</body>
+</html>
